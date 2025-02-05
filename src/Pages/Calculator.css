@@ -35,3 +35,9 @@
   background-color: gray;
   color: white;
 }
+
+.scoreboard-container {
+  padding: 20px; /* Adjust the padding value as needed */
+  height: 50%; /* Half the height of its parent */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
