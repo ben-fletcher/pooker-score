@@ -8,8 +8,8 @@ createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
 
-      <Route path="/" element={<Splash />} />
-      <Route path="/calculator" element={<Calculator />} />
+      <Route path="" element={<Splash />} />
+      <Route path="calculator" element={<Calculator />} />
     </Routes>
   </BrowserRouter>
 );
