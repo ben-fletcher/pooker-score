@@ -1,26 +1,25 @@
-// export enum GameEvent {
-//     PottedRed = "PottedRed",
-//     PottedBlack = "PottedBlack",
-//     FoulRed = "FoulRed",
-//     FoulBlack = "FoulBlack",
-//     OtherFoul = "OtherFoul",
-//     Miss = "Miss"
-// }
 export enum BallColour {
-    Na,
-    Red,
-    Black
+  Na = "",
+  Red = "Red",
+  Black = "Black",
 }
 
-
 export interface GameEvent {
-    potted: boolean
-    foul?: boolean;
-    color: BallColour;
+  potted: boolean;
+  foul?: boolean;
+  colour: BallColour;
 }
 
 export interface Turn {
-    score: number;
+  score: number;
+  event: GameEvent;
+  ballIndex: number;
+}
+
+export interface BallTurn {
+  ballIndex: number;
+  playerEvents: {
+    playerId: number;
     event: GameEvent;
-    ballIndex: number;
+  }[];
 }
