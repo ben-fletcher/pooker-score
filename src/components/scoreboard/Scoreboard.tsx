@@ -22,12 +22,10 @@ const Scoreboard = () => {
         </tr>
       </thead>
       <tbody>
-        {players.map((player: Player) => (
+        {players.map((player: Player, index) => (
           <tr
             key={player.id}
-            style={{
-              backgroundColor: player.id === activePlayer ? "red" : "white",
-            }}
+            className={index === activePlayer ? "table-primary" : ""}
           >
             <td>{player.name}</td>
             <td>
