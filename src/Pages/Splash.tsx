@@ -36,44 +36,47 @@ export default function Splash() {
     };
 
     return (
-        <Container
-            className="d-flex flex-column justify-content-start align-items-center position-relative"
-            style={{ height: '100vh', maxWidth: '450px', paddingTop: '100px' }}
-        >
-            <Row className="w-100">
-                <Col xs={12} className="d-flex flex-column align-items-center">
-                    <h1 style={{ marginBottom: '40px', fontSize: '36px', fontWeight: 'bold' }}>Pooker Score</h1>
-                    <Form.Group controlId="formName" className="w-100 mb-3">
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter your name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            style={{ textAlign: 'center', fontSize: '18px' }}
-                        />
-                    </Form.Group>
-                    <Button onClick={addName} variant="primary" className="mb-3" style={{ width: '150px', height: '50px', fontSize: '20px' }}>
-                        Add
-                    </Button>
-                    <ListGroup className="w-100" style={{ maxHeight: '425px', overflowY: 'auto', marginBottom: '80px' }}>
-                        {names.map((name, index) => (
-                            <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center" style={{ backgroundColor: '#e9ecef' }}>
-                                {name}
-                                <Button variant="danger" size="sm" onClick={() => removeName(index)}>x</Button>
-                            </ListGroup.Item>
-                        ))}
-                    </ListGroup>
-                </Col>
-            </Row>
-            <Button
-                onClick={startGame}
-                variant="success"
-                className="position-fixed"
-                style={{ width: '150px', height: '50px', fontSize: '20px', bottom: '20px' }}
-                disabled={names.length === 0}
+        <div style={{ backgroundColor: ' #35654d' }}>
+            <Container
+                className="d-flex flex-column justify-content-start align-items-center position-relative"
+                style={{ height: '100vh', maxWidth: '450px', paddingTop: '100px' }}
             >
-                Start Game
-            </Button>
-        </Container>
+                <Row className="w-100">
+                    <Col xs={12} className="d-flex flex-column align-items-center">
+                        <h1 style={{ marginBottom: '40px', fontSize: '36px', fontWeight: 'bold' }}>Pooker Score</h1>
+                        <Form.Group controlId="formName" className="w-100 mb-3">
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter your name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                style={{ textAlign: 'center', fontSize: '18px' }}
+                            />
+                        </Form.Group>
+                        <Button onClick={addName} variant="primary" className="calc-button foul-button mb-3" style={{ width: '150px', height: '50px', fontSize: '20px' }}>
+                            Add
+                        </Button>
+                        <ListGroup className="w-100" style={{ maxHeight: '425px', overflowY: 'auto', marginBottom: '80px' }}>
+                            {names.map((name, index) => (
+                                <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center" style={{ backgroundColor: '#e9ecef' }}>
+                                    {name}
+                                    <Button variant="danger" size="sm" onClick={() => removeName(index)}>x</Button>
+                                </ListGroup.Item>
+                            ))}
+                        </ListGroup>
+                    </Col>
+                </Row>
+                <Button
+                    onClick={startGame}
+                    variant="success"
+                    className="calc-button red-button position-fixed"
+                    style={{ width: '150px', height: '50px', fontSize: '20px', bottom: '20px' }}
+                    disabled={names.length === 0}
+                >
+                    Start Game
+                </Button>
+            </Container>
+        </div>
+
     );
 }
