@@ -65,7 +65,8 @@ export default function Splash() {
             >
                 <Row className="w-100">
                     <Col xs={12} className="d-flex flex-column align-items-center">
-                        <h1 style={{ marginBottom: '40px', fontSize: '36px', fontWeight: 'bold' }}>Pooker Score</h1>
+                        {/* <h1 style={{ marginBottom: '40px', fontSize: '36px', fontWeight: 'bold' }}>Pooker Score</h1> */}
+                        <img src={"pooker.png"} alt="logo" style={{ width: '100px', height: '100px', marginBottom: 20, borderRadius: 10 }} />
                         <Form.Group controlId="formName" className="w-100 mb-3">
                             <Form.Control
                                 type="text"

@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import useGameStore from "../../store/store";
 import { Player } from "../../models/player";
 import { BallTurn, Turn } from "../../models/turn";
-import { useEffect, useState } from "react";
 
 const Scoreboard = () => {
   const players = useGameStore((state) => state.players);
@@ -16,7 +16,7 @@ const Scoreboard = () => {
           <th>Name</th>
           <th>Score</th>
           {previousBallTurns.map((ballTurn) => (
-            <th>{ballTurn.ballIndex}</th>
+            <th key={ballTurn.ballIndex}>{ballTurn.ballIndex}</th>
           ))}
           <th>{currentBallTurn.ballIndex}</th>
         </tr>

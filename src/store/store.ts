@@ -36,12 +36,26 @@ const useGameStore = create<GameState>((set) => ({
     console.log(newTurn)
 
 
-    if (newTurn != null) {
+    set((state) => {
+      const updatedPlayers = state.players.map((player, index) =>
+        index === state.activePlayer ? { ...player, turns: [...player.turns, newTurn] } : player
+      );
+      return { ...state, players: updatedPlayers };
+    });
+
+    // Update ball turn
+    set((state) => {
+      const newBallTurn = { ...state.currentBallTurn };
+      newBallTurn.playerEvents.push({ playerId: state.activePlayer + 1, event });
+      return { ...state, currentBallTurn: newBallTurn };
+    });
+
+    //If potted, then change ball turn and new index
+    if (event.potted) {
       set((state) => {
-        const updatedPlayers = state.players.map((player, index) =>
-          index === state.activePlayer ? { ...player, turns: [...player.turns, newTurn] } : player
-        );
-        return { ...state, players: updatedPlayers };
+        const newBallTurn = getDefaultBallTurn();
+        newBallTurn.ballIndex = state.currentBallTurn.ballIndex + 1;
+        return { ...state, currentBallTurn: newBallTurn, previousBallTurns: [...state.previousBallTurns, state.currentBallTurn] };
       });
     }
 
