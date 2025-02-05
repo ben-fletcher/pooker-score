@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 
 const Scoreboard: FC = () => {
   return (
-    <Table responsive striped>
+    <Table responsive striped bordered size="sm">
       <thead>
         <tr>
           <th>Name</th>
