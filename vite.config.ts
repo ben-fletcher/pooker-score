@@ -7,7 +7,17 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({ registerType: 'autoUpdate', manifest: {
-      theme_color: '#35654d'
+      name: 'Pooker',
+      short_name: 'Pooker',
+      description: 'A simple pooker scorekeeper',
+      theme_color: '#35654d',
+      icons: [
+        {
+          src: 'pooker.png',
+          sizes: '192x192',
+          type: 'image/png',
+        }
+      ]
     } })
   ],
 })
