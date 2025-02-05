@@ -25,7 +25,7 @@ export default function Splash() {
                 addPlayer({ id: count, name, turns: [] });
                 count++;
             });
-            navigate('/calculator');
+            navigate('calculator');
         } else {
             alert('Cannot start game with 0 players');
         }
