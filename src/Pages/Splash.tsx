@@ -19,8 +19,12 @@ export default function Splash() {
     };
 
     const startGame = () => {
+        let count = 1;
         if (names.length > 0) {
-            names.forEach((name) => addPlayer({ name, turns: [] }));
+            names.forEach((name) => {
+                addPlayer({ id: count, name, turns: [] });
+                count++;
+            });
             navigate('/calculator');
         } else {
             alert('Cannot start game with 0 players');
