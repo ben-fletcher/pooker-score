@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { Player } from "../models/player";
-import { BallColour, BallTurn, GameEvent } from "../models/turn";
+import { BallTurn, GameEvent } from "../models/turn";
 
 interface GameState {
   activePlayer: number;
@@ -19,35 +19,7 @@ const getDefaultBallTurn = () => ({
 
 const useGameStore = create<GameState>((set) => ({
   activePlayer: 0,
-  players: [
-    {
-      id: 0,
-      name: "Callum",
-      turns: [
-        {
-          score: 0,
-          ballIndex: -1,
-          event: { potted: false, colour: BallColour.Na },
-        },
-        {
-          score: 1,
-          ballIndex: 0,
-          event: { potted: true, colour: BallColour.Red },
-        },
-      ],
-    },
-    {
-      id: 1,
-      name: "Jo",
-      turns: [
-        {
-          score: -1,
-          ballIndex: -1,
-          event: { potted: false, colour: BallColour.Na, foul: true },
-        },
-      ],
-    },
-  ],
+  players: [],
   currentBall: 0,
   currentBallTurn: getDefaultBallTurn(),
   previousBallTurns: [],
