@@ -10,7 +10,7 @@ export default function Calculator() {
 
     return (
         <div className="calculator-container">
-            <span style={{ border: '5px solid black', width: "100%", height: "100%" }}></span>
+            <Scoreboard />
             <div className="button-container">
                 <Button className="calc-button red-button" onClick={() => submitEvent({color: BallColour.Red, potted: true})}>Red</Button>
                 <Button className="calc-button black-button" onClick={() => submitEvent({color: BallColour.Black, potted: true})}>Black</Button>
