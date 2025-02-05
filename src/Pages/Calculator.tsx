@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import "./Calculator.css";
-import { GameEvent } from "../models/turn";
+import { BallColour } from "../models/turn";
 import useGameStore from "../store/store";
 import Scoreboard from "../components/scoreboard/Scoreboard";
 
@@ -15,25 +15,27 @@ const Calculator = () => {
       <div className="button-container">
         <Button
           className="calc-button red-button"
-          onClick={() => submitEvent(GameEvent.PottedRed)}
+          onClick={() => submitEvent({ color: BallColour.Red, potted: true })}
         >
           Red
         </Button>
         <Button
           className="calc-button black-button"
-          onClick={() => submitEvent(GameEvent.PottedBlack)}
+          onClick={() => submitEvent({ color: BallColour.Black, potted: true })}
         >
           Black
         </Button>
         <Button
           className="calc-button foul-button"
-          onClick={() => submitEvent(GameEvent.FoulRed)}
+          onClick={() =>
+            submitEvent({ color: BallColour.Na, potted: false, foul: true })
+          }
         >
           Foul
         </Button>
         <Button
           className="calc-button miss-button"
-          onClick={() => submitEvent(GameEvent.Miss)}
+          onClick={() => submitEvent({ color: BallColour.Na, potted: false })}
         >
           Miss
         </Button>
