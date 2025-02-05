@@ -7,6 +7,7 @@ interface GameState {
   players: Player[];
   addPlayer: (player: Player) => void;
   submitEvent: (event: GameEvent) => void;
+  clearPlayers: () => void;
 }
 
 const useGameStore = create<GameState>((set) => ({
@@ -16,7 +17,9 @@ const useGameStore = create<GameState>((set) => ({
     set((state) => ({ players: [...state.players, player] })),
   submitEvent: (event: GameEvent) => {
     console.log(event);
-  }
+  },
+  clearPlayers: () =>
+    set((state) => ({ ...state, players: [] })),
 }));
 
 export default useGameStore;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, Form, ListGroup, Container, Row, Col } from 'react-bootstrap';
 import useGameStore from '../store/store';
 import { useNavigate } from 'react-router';
@@ -9,6 +9,7 @@ export default function Splash() {
     const [names, setNames] = useState<string[]>([]);
     const addPlayer = useGameStore((state) => state.addPlayer);
     const navigate = useNavigate();
+    const clearPlayers = useGameStore((state) => state.clearPlayers);
 
     const addName = () => {
         if (name.trim() !== '' && !names.includes(name)) {
@@ -18,6 +19,12 @@ export default function Splash() {
             alert('Name already exists');
         }
     };
+
+    useEffect(() => {
+        setNames([]);
+        clearPlayers();
+    }, []);
+
 
     const startGame = () => {
         let count = 1;
