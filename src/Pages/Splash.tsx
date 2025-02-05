@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Form, ListGroup, Container, Row, Col } from 'react-bootstrap';
 import useGameStore from '../store/store';
 import { useNavigate } from 'react-router';
+import './Splash.css';
 
 export default function Splash() {
     const [name, setName] = useState('');
@@ -25,7 +26,8 @@ export default function Splash() {
                 addPlayer({ id: count, name, turns: [] });
                 count++;
             });
-            navigate('calculator');
+            triggerAnimation();
+            setTimeout(() => navigate('calculator'), 1000); // Delay navigation to allow animation to complete
         } else {
             alert('Cannot start game with 0 players');
         }
@@ -33,6 +35,19 @@ export default function Splash() {
 
     const removeName = (index: number) => {
         setNames(names.filter((_, i) => i !== index));
+    };
+
+    const triggerAnimation = () => {
+        for (let i = 0; i < 100; i++) { // Create 10 pool balls
+            const ball = document.createElement('div');
+            ball.className = 'pool-ball';
+            ball.style.top = `${Math.random() * 100}%`; // Randomize the vertical position
+            ball.style.left = `${Math.random() * 100}%`; // Randomize the horizontal position
+            document.body.appendChild(ball);
+            setTimeout(() => {
+                document.body.removeChild(ball);
+            }, 1000); // Remove the ball after the animation completes
+        }
     };
 
     return (
